@@ -1,25 +1,12 @@
 import { useState} from 'react'
 import { IWearth } from './types/Iweather'
 import Lupa from './img/lupa.png'
-import Nublado from './img/nublado.png'
-import Sol from './img/sun_5234558.png'
-import Despersas from './img/dia-nublado.png'
-import Neve from './img/floco-de-neve.png'
-import DiaChuvoso from './img/dia-chuvoso.png'
 import weather from './services/api/weather'
 
 function App() {
   const [search, setSearch] = useState<string>('')
   const [weatherData , setWeatherData] = useState<IWearth[]>([])
 
-  
-  
-  // Get input value //
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearch(e.currentTarget.value)
-  }
-  
-  
   
   // Input submit //
   const handleFetch = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -29,10 +16,6 @@ function App() {
       setWeatherData([data])
   }
 
-  
-
- 
-
   return (
     <>
       <main className='h-64 w-56 ml-auto mr-auto mt-56 bg-violet-400 rounded-xl'>
@@ -41,7 +24,7 @@ function App() {
             className='border rounded-md mt-2 ml-3 shadow-xl '
             type='text'
             placeholder='Cidade'
-            onChange={handleChange}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>)=> setSearch(e.currentTarget.value) }
             required
           />
           <button className='size-5 mt-3 absolute ml-44' type='submit'>
