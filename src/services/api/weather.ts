@@ -7,8 +7,10 @@ return {
     getWeather: async () => {
         try{
           const res = await fetch(urlapi)
-          return await res.json()
-        }catch(err){
+            return await res.json()
+          }
+          
+        catch(err){
       }
 }}
 }
