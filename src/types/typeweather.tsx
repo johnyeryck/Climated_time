@@ -21,10 +21,10 @@ export interface IWearth{
     sys :{
       country : string
     }
-    weather: {
+    weather: [{
       main: string
       description: string
-    }
+    }]
   }
 
 
